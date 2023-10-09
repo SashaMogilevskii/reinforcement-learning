@@ -1,0 +1,8 @@
+gym==0.24.0
+gym-maze
+tqdm
+matplotlib
+
+
+
+print("initial state", env.reset())
