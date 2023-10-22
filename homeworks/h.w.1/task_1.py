@@ -26,9 +26,6 @@ class CrossEntropyAgent():
         Значение в матрице - оценка вероятности(вес?) данного действия в данном состояние """
         self.model = np.ones((state_n, action_n)) / action_n
 
-
-
-
     def get_action(self, state):
         action = np.random.choice(np.arange(self.action_n), p=self.model[state])
         return int(action)

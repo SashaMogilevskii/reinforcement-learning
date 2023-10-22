@@ -10,6 +10,7 @@ def set_seed(seed=1771):
     np.random.seed(seed)
 
 
+
 set_seed()
 
 env = gym.make('Taxi-v3')

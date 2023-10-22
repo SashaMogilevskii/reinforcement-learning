@@ -76,8 +76,9 @@ def get_trajectory(env, agent, max_len=1000, visualize=False):
 
     return trajectory
 
-
+agent = ''
 def train(q_param, trajectory_n, iteration_n, max_length, lm, state_n=500, action_n=6):
+    global agent
     agent = CrossEntropyAgent(state_n=state_n, action_n=action_n, lm=lm)
     mean_rewards_for_epochs = []
     for iteration in range(iteration_n):
@@ -105,7 +106,7 @@ def train(q_param, trajectory_n, iteration_n, max_length, lm, state_n=500, actio
             "max_length": max_length,
             "info": mean_rewards_for_epochs}
 
-for lm in [1, 0.9 , 0.8, 0.5, 0.4, 0.3, 0.2]:
+for lm in [0.5]:
     results = train(q_param=0.8,
                     trajectory_n=300,
                     iteration_n=30,
@@ -117,3 +118,5 @@ for lm in [1, 0.9 , 0.8, 0.5, 0.4, 0.3, 0.2]:
     print("Средняя награда на последней эпохе:", results['info'][-1][1])
     print("Максимальная награда на последней эпохе:", results['info'][-1][2])
     print('-------------')
+
+get_trajectory(env, agent, max_len=1000, visualize=True)
