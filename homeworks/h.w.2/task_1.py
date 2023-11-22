@@ -122,9 +122,9 @@ def train_lopp():
 
 agent = CrossEntropyAgent(state_dim=state_n, action_n=action_n)
 q_param = 0.6
-trajectory_n = 50
-iteration_n = 50
-max_len = 500
+trajectory_n = 20
+iteration_n = 20
+max_len = 300
 lst_rew = train_lopp()
 print(lst_rew)
 traj = get_trajectory(env, agent, max_len=max_len, visualize=True)
