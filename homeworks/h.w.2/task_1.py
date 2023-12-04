@@ -14,7 +14,6 @@ def set_seed(seed=1771):
     torch.backends.cudnn.deterministic = False
     torch.backends.cudnn.benchmark = True
 
-
 set_seed()
 
 env = gym.make("LunarLander-v2")
@@ -36,7 +35,7 @@ class CrossEntropyAgent(nn.Module):
         )
 
         self.softmax = nn.Softmax()
-        self.optim = torch.optim.Adam(self.parameters(), lr=1e-2)
+        self.optim = torch.optim.Adam(self.parameters(), lr=1e-3)
         self.loss = nn.CrossEntropyLoss()
 
     def forward(self, _input):
